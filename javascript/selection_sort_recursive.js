@@ -1,5 +1,21 @@
 function selectionSortRecursive(arr) {
   // type your code here
+
+  if (arr.length <= 1) return arr
+
+  const minElement = Math.min(...arr)
+  const index = arr.indexOf(minElement)
+
+  arr.splice(index, 1)
+
+  let newArray = selectionSortRecursive( arr )
+  newArray.unshift(minElement)
+
+  return newArray
+
+
+  // return ( [minElement, ...selectionSortRecursive( arr.splice(index, 1) ) ] )
+
 }
 
 if (require.main === module) {
